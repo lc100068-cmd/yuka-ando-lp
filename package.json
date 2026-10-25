@@ -1,0 +1,10 @@
+{
+  "name": "yuka-ando-lp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Yukaの旅と人生を、7枚の漫画で読み進めるモバイル向けLP",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  }
+}

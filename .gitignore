@@ -1,0 +1,6 @@
+dist/
+node_modules/
+.DS_Store
+.openai/runtime/
+.openai/*.local.*
+qa/
