@@ -19,6 +19,8 @@
 - `app.js`：目次・進捗・拡大表示
 - `assets/story-01.webp` 〜 `story-07.webp`：漫画画像
 - `assets/story-01-480.webp` 〜 `story-07-480.webp`：小さな画面向けの軽量画像
+- `assets/story-01-cruise.webp`・`story-01-cruise-480.webp`：飛行機アイコンをクルーズ船に変更した、現在の1枚目
+- `assets/cruise-liner.webp`：背景透過で新しく制作したモーション用の船。船全体を表示し、切り抜き窓やぼかした縁は使っていません。
 
 WebPはPNG原稿から高画質で変換した配信用画像です。画像内の文章・絵柄・縦横比は元のままです。
 
