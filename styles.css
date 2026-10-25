@@ -36,19 +36,40 @@ dialog{color:var(--ink)}dialog::backdrop{background:rgba(37,31,24,.5);backdrop-f
 .bridge-art{position:relative;z-index:1;width:86%;max-width:420px;aspect-ratio:2;margin:4px 0 0;overflow:visible}
 .bridge-ship-shadow{position:absolute;z-index:0;left:11%;right:10%;bottom:6%;height:13%;border-radius:50%;background:radial-gradient(ellipse,#619aa92e 0%,#89b6c01a 45%,transparent 72%);filter:blur(5px);pointer-events:none}
 .bridge-art img{position:relative;z-index:1;display:block;width:100%;height:100%;object-fit:contain;object-position:center;transform-origin:50% 65%;filter:drop-shadow(0 7px 7px #436c7714);pointer-events:none}
-.motion-enabled .reveal-ready .artwork{transition:opacity .8s ease,transform .85s cubic-bezier(.2,.65,.3,1)}
-.motion-enabled .chapter.reveal-ready:not(.is-visible) .artwork{opacity:.2;transform:translateY(22px)}
+.motion-enabled .reveal-ready .artwork{transition:opacity 1s ease,transform 1.1s cubic-bezier(.16,.72,.25,1)}
+.motion-enabled .chapter.reveal-ready:not(.is-visible) .artwork{opacity:.12;transform:translateY(42px) scale(.975)}
+.motion-enabled .chapter:first-child .artwork{animation:hero-arrival 1.15s cubic-bezier(.16,.72,.25,1) both}
 .motion-enabled .story-bridge.reveal-ready .bridge-kicker,.motion-enabled .story-bridge.reveal-ready p,.motion-enabled .story-bridge.reveal-ready .bridge-art{transition:opacity .7s ease,transform .85s cubic-bezier(.2,.65,.3,1)}
 .motion-enabled .story-bridge.reveal-ready p{transition-delay:.08s}
 .motion-enabled .story-bridge.reveal-ready .bridge-art{transition-delay:.14s}
 .motion-enabled .story-bridge.reveal-ready:not(.is-visible) .bridge-kicker,.motion-enabled .story-bridge.reveal-ready:not(.is-visible) p,.motion-enabled .story-bridge.reveal-ready:not(.is-visible) .bridge-art{opacity:0;transform:translateY(14px)}
-.motion-enabled .bridge-next svg{animation:arrow-invitation 2.8s ease-in-out infinite;animation-play-state:paused}
-.motion-enabled .motif-cruise{animation:cruise-bob 5s ease-in-out infinite;animation-play-state:paused}
-.motion-enabled .bridge-art img{animation:ship-drift 7s ease-in-out infinite;animation-play-state:paused}
-.motion-enabled .is-active .bridge-next svg,.motion-enabled .is-active .motif-cruise,.motion-enabled .is-active .bridge-art img{animation-play-state:running}
-@keyframes arrow-invitation{0%,100%{transform:translateY(-2px);opacity:.6}50%{transform:translateY(4px);opacity:1}}
-@keyframes cruise-bob{0%,100%{transform:translateY(1px) rotate(-4deg)}50%{transform:translateY(-2px) rotate(-2deg)}}
-@keyframes ship-drift{0%,100%{transform:translate(-1px,2px) rotate(-.25deg)}50%{transform:translate(2px,-2px) rotate(.25deg)}}
+.motion-enabled .bridge-next svg{animation:arrow-invitation 2.1s ease-in-out infinite;animation-play-state:paused}
+.motion-enabled .bridge-next svg path{stroke-dasharray:72;animation:arrow-draw 2.1s ease-in-out infinite;animation-play-state:paused}
+.motion-enabled .bridge-next::after{content:"";position:absolute;inset:7px;border:1px solid currentColor;border-radius:50%;opacity:0;pointer-events:none;animation:arrow-ripple 2.1s ease-out infinite;animation-play-state:paused}
+.motion-enabled .motif-cruise{animation:cruise-bob 4.6s ease-in-out infinite;animation-play-state:paused}
+.motion-enabled .bridge-art img{animation:ship-drift 5.8s ease-in-out infinite;animation-play-state:paused}
+.bridge-ship-waves{position:absolute;z-index:0;left:8%;bottom:1%;width:87%;height:28px;fill:none;stroke:#8bb8c6;stroke-width:1;stroke-linecap:round;opacity:.45;pointer-events:none}
+.motion-enabled .bridge-ship-waves{animation:ship-wake 3.8s ease-in-out infinite;animation-play-state:paused}
+.motion-enabled .bridge-ship-shadow{animation:ship-shadow 5.8s ease-in-out infinite;animation-play-state:paused}
+.motion-enabled .bridge-waves{width:calc(100% + 48px);left:-24px;animation:ocean-flow 5.6s ease-in-out infinite;animation-play-state:paused}
+.motion-enabled .bridge-dot{animation:thought-drift 5s ease-in-out infinite;animation-play-state:paused}
+.motion-enabled .bridge-dot-two{animation-delay:-2.5s}
+.motion-enabled .motif-spark{animation:discovery-spark 3.4s ease-in-out infinite;animation-play-state:paused}
+.motion-enabled .motif-leaf{transform-origin:25% 80%;animation:leaf-sway 4.8s ease-in-out infinite;animation-play-state:paused}
+.motion-enabled .is-active .bridge-next svg,.motion-enabled .is-active .bridge-next svg path,.motion-enabled .is-active .bridge-next::after,.motion-enabled .is-active .bridge-motif,.motion-enabled .is-active .bridge-art img,.motion-enabled .is-active .bridge-ship-waves,.motion-enabled .is-active .bridge-ship-shadow,.motion-enabled .is-active .bridge-waves,.motion-enabled .is-active .bridge-dot{animation-play-state:running}
+.motion-enabled body.modal-open .story-bridge *,.motion-enabled body.modal-open .bridge-next::after{animation-play-state:paused!important}
+@keyframes hero-arrival{from{opacity:.2;transform:translateY(20px) scale(.988)}to{opacity:1;transform:none}}
+@keyframes arrow-invitation{0%,100%{transform:translateY(-4px);opacity:.55}55%{transform:translateY(7px);opacity:1}}
+@keyframes arrow-draw{0%,12%{stroke-dashoffset:72}48%,100%{stroke-dashoffset:0}}
+@keyframes arrow-ripple{0%,25%{transform:translateY(5px) scale(.65);opacity:0}40%{opacity:.25}100%{transform:translateY(5px) scale(1.65);opacity:0}}
+@keyframes cruise-bob{0%,100%{transform:translate(-2px,3px) rotate(-5deg)}50%{transform:translate(3px,-5px) rotate(1deg)}}
+@keyframes ship-drift{0%,100%{transform:translate(-6px,6px) rotate(-.6deg)}50%{transform:translate(7px,-6px) rotate(.6deg)}}
+@keyframes ship-wake{0%,100%{transform:translateX(-9px) scaleX(.92);opacity:.25}50%{transform:translateX(9px) scaleX(1.06);opacity:.6}}
+@keyframes ship-shadow{0%,100%{transform:translateX(-4px) scaleX(.95);opacity:.8}50%{transform:translateX(5px) scaleX(1.06);opacity:.5}}
+@keyframes ocean-flow{0%,100%{transform:translateX(-18px) translateY(1px)}50%{transform:translateX(18px) translateY(-3px)}}
+@keyframes thought-drift{0%,100%{transform:translateY(5px) scale(.94);opacity:.4}50%{transform:translateY(-7px) scale(1.08);opacity:.8}}
+@keyframes discovery-spark{0%,100%{transform:rotate(-9deg) scale(.88);opacity:.25}50%{transform:rotate(9deg) scale(1.1);opacity:.75}}
+@keyframes leaf-sway{0%,100%{transform:rotate(10deg) translateY(2px)}50%{transform:rotate(24deg) translateY(-5px)}}
 @media(min-width:768px){.story-bridge{min-height:210px;padding-block:38px 30px;gap:12px}.story-bridge p{font-size:24px}.bridge-kicker{font-size:10px}.bridge-motif{width:58px;height:58px}.bridge-future{min-height:360px}}
 @media(max-width:359px){.story-bridge p{font-size:16px}.bridge-kicker{font-size:8px}.bridge-motif{width:34px;height:34px}.story-bridge{padding-inline:18px}}
 @media(prefers-reduced-motion:reduce){.motion-enabled .chapter.reveal-ready .artwork,.motion-enabled .story-bridge.reveal-ready .bridge-kicker,.motion-enabled .story-bridge.reveal-ready p,.motion-enabled .story-bridge.reveal-ready .bridge-art{opacity:1!important;transform:none!important;transition:none!important}.bridge-next svg,.bridge-motif,.bridge-art img{animation:none!important}}
